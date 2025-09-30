@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGICBYTE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blur"></div>
+    <div class="container">
+        <header>
+            <h1 class="logo">LOGICBYTE</h1>
+            <nav>
+                <a href="#">COMPANY</a>
+                <a href="#">FEATURES</a>
+                <a href="#">RESOURCES</a>
+                <a href="#">DOCS</a>
+                <button class="btn-sign">SIGNING</button>
+            </nav>
+        </header>
+        <main>
+            <div class="content">
+                <canvas id="robotCanvas" width="700" height="700" class="robotimage"></canvas>
+                <div class="tag-box">
+                    <div class="centerintro">
+                        <div class="tag">
+                            <p>INTRODUCING</p> 
+                        </div>
+                    </div>
+                    <div class="heading">
+                        <h1 class="bigheading">
+                            AUTOMATION FOR<br><span>BUSINESSES</span>
+                        </h1>
+                    </div>
+                    <p class="desc">
+                        BEST way to automate your company with our BOTS
+                    </p>
+                    <div class="buttons">
+                        <a href="#" class="document">Documentation &gt</a>
+                        <a href="#" class="get-started">GET-STARTED</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/@rive-app/canvas"></script>
+    <script>
+        const canvas = document.getElementById("robotCanvas");
+        const r = new rive.Rive({
+            src: "newrobot.riv",
+            canvas: canvas,
+            autoplay: true,
+            onLoad: () => {
+                resizeRiveCanvas();
+            }
+        });
+
+        function resizeRiveCanvas() {
+            canvas.width = canvas.clientWidth * window.devicePixelRatio;
+            canvas.height = canvas.clientHeight * window.devicePixelRatio;
+            r.resizeDrawingSurfaceToCanvas();
+        }
+
+        window.addEventListener("resize", resizeRiveCanvas);
+    </script>
+</body>
+</html>
